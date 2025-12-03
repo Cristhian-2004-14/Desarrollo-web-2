@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ejemplo de menú de navegación responsive con efectos modernos">
+    <title>Navegación Moderna | Ejercicio 3</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navegación Principal -->
+    <nav class="navbar">
+        <div class="container">
+            <!-- Logo -->
+           <a href="#" class="logo">
+    <img src="gato.jpeg" alt="Gatos" class="logo-img">
+    <span class="logo-text">Migato</span>
+</a>
+
+            <!-- Toggle para móvil (hamburguesa) -->
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+                <span class="hamburger"></span>
+            </button>
+
+            <!-- Menú de navegación -->
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+    <a href="#" class="nav-link active">Inicio</a> 
+</li>
+                <li class="nav-item">
+                    <a href="#servicios" class="nav-link">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#portafolio" class="nav-link">Portafolio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#equipo" class="nav-link">Equipo</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#blog" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#gatos" class="nav-link">Gatos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contacto" class="nav-link btn-cta">Contactar</a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido de ejemplo para demostrar scroll -->
+    <section class="hero">
+        <div class="container">
+            <h1>Navegación Moderna y Responsive</h1>
+            <p>Este menú demuestra el uso de pseudo-clases CSS y diseño responsive.</p>           
+            </div>
+    </section>
+
+    <section class="content-section" id="servicios">
+        <div class="container">
+            <h2>Sección de Servicios</h2>
+            <p>Contenido de ejemplo para demostrar la navegación. Desplázate hacia abajo para ver más secciones.</p>
+        </div>
+    </section>
+
+    <section class="content-section" id="portafolio">
+        <div class="container">
+            <h2>Sección de Portafolio</h2>
+            <p>Aquí iría el portafolio de proyectos.</p>
+        </div>
+    </section>
+
+    <section class="content-section" id="equipo">
+        <div class="container">
+            <h2>Sección del Equipo</h2>
+            <p>Información sobre el equipo de trabajo.</p>
+        </div>
+    </section>
+
+    <section class="content-section" id="blog">
+        <div class="container">
+            <h2>Sección del Blog</h2>
+            <p>Artículos y noticias recientes.</p>
+        </div>
+    </section>
+    <section class="content-section" id="gatos">
+        <div class="container">
+            <h2>Sección Gatos</h2>
+            <p>Artículos y noticias recientes.</p>
+        </div>
+    </section>
+
+    <section class="content-section" id="contacto">
+        <div class="container">
+            <h2>Sección de Contacto</h2>
+            <p>Formulario de contacto y datos.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 TechCorp. Ejercicio de navegación responsive.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript para el menú hamburguesa -->
+    <script src="script.js"></script>
+</body>
+</html>
