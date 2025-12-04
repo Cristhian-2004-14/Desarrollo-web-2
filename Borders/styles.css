@@ -1,0 +1,658 @@
+/* =====================================
+  RESET
+  ===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Fondo oscuro, como un menú */
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #000000; /* Negro puro */
+    color: #ffffff; /* Texto principal blanco */
+    line-height: 1.6;
+    padding: 2rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+h1 {
+    text-align: center;
+    color: #e32231; /* Rojo de Persona */
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    text-align: center;
+    color: #999999;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+h3 {
+    margin: 1.5rem 0 1rem 0;
+    color: #ffffff;
+    text-transform: uppercase;
+    /* Línea de separación sutil */
+    border-bottom: 1px dashed #333333;
+    padding-bottom: 0.5rem;
+}
+
+code {
+    background: #e32231;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #ffffff;
+}
+
+/* =====================================
+  SECCIONES DEMO (El "viewport" del menú)
+  ===================================== */
+
+.demo-section {
+    /* Fondo que simula la tarjeta de menú principal */
+    background: #1a1a1a; 
+    padding: 2.5rem;
+    /* Aumento de la separación entre secciones */
+    margin-bottom: 4rem; 
+    /* Bordes ligeramente redondeados o afilados */
+    border-radius: 8px;
+    /* Borde exterior de alto contraste (Blanco o Rojo) */
+    box-shadow: 0 0 0 3px #e32231, 0 8px 16px rgba(0,0,0,0.4); 
+}
+
+.demo-section h2 {
+    color: #ffffff; 
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+    border-left: 5px solid #e32231;
+    padding-left: 1rem;
+}
+
+/* =====================================
+  SECCIÓN 1: ESTILOS DE BORDER
+  ===================================== */
+
+.border-styles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Mayor separación */
+    gap: 2.5rem; 
+    margin-bottom: 3rem;
+}
+
+.border-box {
+    padding: 1.5rem;
+    /* Fondo principal de los elementos */
+    background: #1a1a1a; 
+    /* Borde base (lo usaremos para los efectos) */
+    border: 3px solid #333333; 
+    border-radius: 8px; 
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #f8f9fa; 
+}
+
+.border-box:hover {
+    transform: translateY(-3px);
+    /* Énfasis visual con el rojo de Persona */
+    box-shadow: 0 0 0 3px #e32231, 0 6px 15px rgba(227, 34, 49, 0.4); 
+}
+
+.border-box strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ffffff; 
+    font-size: 1.2rem;
+    text-transform: uppercase; 
+}
+
+.border-box p {
+    font-size: 0.9rem;
+    color: #b0b0b0; 
+    margin: 0.25rem 0;
+}
+
+/* ⭐ ESTILOS DE BORDER - Estilo Persona */
+.border-solid {
+    /* Borde principal rojo */
+    border: 3px solid #e32231;
+}
+
+/* Simulación de doble borde con box-shadow para el efecto de marco */
+.border-double-persona {
+    border: 5px solid #e32231; /* Borde exterior rojo */
+    /* Sombra interior para simular el doble borde y el alto contraste */
+    box-shadow: inset 0 0 0 3px #1a1a1a, inset 0 0 0 6px #ffffff; 
+}
+
+/* Los otros estilos de borde se simplifican o eliminan, ya que no encajan con la estética geométrica */
+
+.border-dashed,
+.border-dotted,
+.border-double,
+.border-groove,
+.border-ridge,
+.border-inset,
+.border-outset {
+    /* Los agrupamos con un borde simple blanco para alto contraste */
+    border: 3px solid #ffffff; 
+}
+
+
+/* =====================================
+  SECCIÓN 2: BORDES INDIVIDUALES
+  ===================================== */
+
+.individual-borders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Mayor separación */
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+/* Énfasis de línea única de alto contraste */
+.border-top-only {
+    border-top: 5px solid #e32231;
+}
+
+.border-bottom-only {
+    border-bottom: 5px solid #ffffff;
+}
+
+.border-left-only {
+    /* Color secundario (azul/verde) */
+    border-left: 5px solid #1abc9c; 
+}
+
+.border-mixed {
+    border-top: 3px solid #e32231;
+    border-bottom: 3px solid #ffffff;
+}
+
+/* =====================================
+  SECCIÓN 3: BORDER-RADIUS
+  ===================================== */
+
+.radius-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    /* Mayor separación */
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.radius-box {
+    padding: 1.5rem;
+    /* Fondo con degradado más oscuro */
+    background: linear-gradient(135deg, #34495e 0%, #1a1a1a 100%);
+    color: white;
+    text-align: center;
+    /* Borde blanco para mayor contraste */
+    border: 3px solid white;
+    /* Base de radio afilado */
+    border-radius: 4px;
+}
+
+.radius-box strong {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* ⭐ BORDER-RADIUS - Diferentes valores */
+.radius-small {
+    /* Casi afilado */
+    border-radius: 4px;
+}
+
+.radius-medium {
+    /* Ligeramente redondeado */
+    border-radius: 8px;
+}
+
+.radius-large {
+    /* Máximo redondeo que encaja en la estética */
+    border-radius: 12px;
+}
+
+.radius-pill {
+    border-radius: 999px;
+}
+
+/* =====================================
+  SECCIÓN 4: FORMAS
+  ===================================== */
+
+.shapes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    /* Mayor separación */
+    gap: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+.shape-container {
+    text-align: center;
+}
+
+.shape-container p {
+    margin: 1rem 0 0.5rem 0;
+    font-weight: 600;
+}
+
+.shape {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    /* Fondo secundario */
+    background: #e32231; 
+    /* Borde de contraste */
+    border: 3px solid #ffffff;
+}
+
+/* ⭐ FORMAS CON BORDER-RADIUS */
+.circle {
+    border-radius: 50%;
+}
+
+.rounded-square {
+    /* Usando el redondeo típico de Persona */
+    border-radius: 8px;
+}
+
+.top-rounded {
+    /* Mantiene las esquinas afiladas abajo */
+    border-radius: 50% 50% 0 0;
+}
+
+.leaf {
+    /* Forma geométrica inusual */
+    border-radius: 0 100% 0 100%;
+}
+
+/* =====================================
+  SECCIÓN 5: BOTONES (Adaptados al tema)
+  ===================================== */
+
+.buttons-demo {
+    display: flex;
+    gap: 1.5rem; /* Aumento de la separación */
+    flex-wrap: wrap;
+    margin: 1.5rem 0 3rem 0;
+}
+
+.btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 4px; /* Afilado */
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+/* Botones sólidos - Estilo Persona (Rojo) */
+.btn-filled {
+    background: #e32231;
+    color: white;
+    border: 2px solid #e32231;
+}
+
+.btn-filled:hover {
+    background: #c01a27;
+    border-color: #c01a27;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(227, 34, 49, 0.4);
+}
+
+/* Botones outline - Contraste Blanco */
+.btn-outline {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.btn-outline:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+/* Botones ghost - Color Secundario */
+.btn-ghost {
+    background: transparent;
+    color: #1abc9c;
+    border: 2px solid transparent;
+}
+
+.btn-ghost:hover {
+    border-color: #1abc9c;
+}
+
+/* Botones con efectos */
+.btn-border-grow {
+    background: #1a1a1a;
+    color: #e32231;
+    border: 2px solid #e32231;
+}
+
+.btn-border-grow:hover {
+    border-width: 4px;
+}
+
+.btn-border-spin {
+    background: #1a1a1a;
+    color: #1abc9c;
+    border: 3px solid #1abc9c;
+    border-radius: 50px;
+}
+
+.btn-border-spin:hover {
+    transform: rotate(2deg); /* Movimiento sutil */
+    box-shadow: 0 0 10px #1abc9c;
+}
+
+.btn-slide-border {
+    background: #1a1a1a;
+    color: #ffffff;
+    border: none;
+    border-bottom: 3px solid transparent;
+}
+
+.btn-slide-border:hover {
+    border-bottom-color: #e32231;
+}
+
+/* =====================================
+  SECCIÓN 6: CARDS (Adaptadas al tema)
+  ===================================== */
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Mayor separación */
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.card {
+    padding: 1.5rem;
+    background: #0d0d0d; /* Casi negro */
+    transition: all 0.3s ease;
+    color: #f8f9fa;
+    border: 1px solid #333333;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 0 3px #1abc9c, 0 8px 16px rgba(0,0,0,0.4); /* Énfasis con color secundario */
+}
+
+.card h3 {
+    color: #ffffff;
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+    border-bottom: none;
+}
+
+.card p {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+}
+
+/* Estilos de cards */
+.card-simple {
+    border: 3px solid #333333;
+    border-radius: 4px;
+}
+
+.card-thick {
+    border: 5px solid #e32231;
+    border-radius: 8px;
+}
+
+.card-accent {
+    border: 1px solid #333333;
+    /* Acento vertical en color secundario */
+    border-left: 5px solid #1abc9c; 
+    border-radius: 4px;
+}
+
+.card-dashed {
+    border: 2px solid #ffffff; /* Sustituimos el dashed por solid */
+    border-radius: 10px;
+}
+
+/* =====================================
+  SECCIÓN 7: AVATARES (Adaptados al tema)
+  ===================================== */
+
+.avatars-demo {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+.avatar-container {
+    text-align: center;
+}
+
+.avatar-container p {
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    /* Borde de alto contraste (Blanco) */
+    border: 3px solid #ffffff;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-circle {
+    border-radius: 50%;
+}
+
+.avatar-rounded {
+    /* Usando el redondeo típico de Persona */
+    border-radius: 8px;
+}
+
+.avatar-square {
+    border-radius: 0;
+}
+
+/* =====================================
+  SECCIÓN 8: EFECTOS AVANZADOS
+  ===================================== */
+
+.advanced-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Mayor separación */
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.advanced-box {
+    padding: 2rem;
+    text-align: center;
+    background: #0d0d0d;
+    color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #333333;
+    transition: all 0.3s ease;
+}
+
+.advanced-box p {
+    margin: 0.5rem 0;
+}
+
+/* Border con gradiente (truco) */
+.gradient-border {
+    background: 
+        linear-gradient(#0d0d0d, #0d0d0d) padding-box,
+        linear-gradient(135deg, #e32231, #ffffff) border-box;
+    border: 4px solid transparent;
+}
+
+/* Border con glow */
+.glow-border {
+    border: 2px solid #1abc9c;
+    box-shadow: 0 0 20px rgba(27, 188, 156, 0.5);
+}
+
+.glow-border:hover {
+    box-shadow: 0 0 30px rgba(27, 188, 156, 0.8);
+}
+
+/* Border animado */
+.animated-border {
+    border: 3px solid #ffffff;
+    position: relative;
+}
+
+.animated-border:hover {
+    border-color: #e32231;
+}
+
+/* =====================================
+  CÓDIGO DE REFERENCIA
+  ===================================== */
+
+.code-section {
+    background: #1a1a1a;
+    color: #ecf0f1;
+}
+
+.code-section h2 {
+    color: #e32231;
+}
+
+pre {
+    background: #333333;
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    line-height: 1.8;
+    margin-top: 1rem;
+}
+
+pre code {
+    color: #1abc9c;
+    font-size: 0.95rem;
+    background: none;
+}
+
+/* =====================================
+  RESPONSIVE
+  ===================================== */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .demo-section {
+        padding: 1.5rem 1rem;
+        margin-bottom: 3rem;
+    }
+    
+    .border-styles-grid,
+    .individual-borders-grid,
+    .radius-grid,
+    .cards-grid,
+    .advanced-grid {
+        /* Se usa 1fr por defecto en el media query, pero aseguramos la separación */
+        gap: 1.5rem;
+    }
+    
+    .buttons-demo {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
+
+/* =====================================
+   NOTAS EDUCATIVAS
+   ===================================== */
+
+/*
+📚 CONCEPTOS CLAVE DE BORDERS:
+
+1. SINTAXIS BÁSICA:
+   border: width style color;
+   border: 2px solid #3498db;
+
+2. ESTILOS DISPONIBLES:
+   - solid: Línea sólida
+   - dashed: Línea discontinua
+   - dotted: Puntos
+   - double: Línea doble
+   - groove: 3D hundido
+   - ridge: 3D elevado
+   - inset: 3D contenido hundido
+   - outset: 3D contenido elevado
+   - none: Sin borde
+   - hidden: Oculto (igual a none)
+
+3. BORDES INDIVIDUALES:
+   border-top: 1px solid black;
+   border-right: 2px dashed blue;
+   border-bottom: 3px dotted red;
+   border-left: 4px double green;
+
+4. BORDER-RADIUS:
+   - border-radius: 10px; (todos iguales)
+   - border-radius: 10px 20px 30px 40px; (TL TR BR BL)
+   - border-radius: 50%; (círculo)
+   - border-radius: 50% 50% 0 0; (top redondeado)
+
+5. EL BORDER AFECTA EL TAMAÑO:
+   Con box-sizing: content-box:
+   - width: 200px + border: 5px = 210px total
+   
+   Con box-sizing: border-box:
+   - width: 200px + border: 5px = 200px total
+
+6. TRUCOS:
+   - Triángulos con borders transparentes
+   - Gradientes con background-clip
+   - Efectos glow con box-shadow
+
+⭐ BEST PRACTICE:
+- Usa border-radius para esquinas redondeadas
+- Considera box-sizing: border-box
+- Usa rem/em para borders escalables
+- Combina con transition para efectos hover
+*/
