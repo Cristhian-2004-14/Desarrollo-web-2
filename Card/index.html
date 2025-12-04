@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Card component demostrando el Box Model de CSS">
+    <title>Card Component | Box Model</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">Cristhian Semo Montero Productos Destacados</h1>
+        <p class="subtitle">Ejemplo de Card Component usando Box Model</p>
+        
+        <!-- Grid de Cards -->
+        <div class="cards-grid">
+            
+            <!-- Card 1 -->
+            <article class="card">
+                <div class="card-image">
+                    <img src="gato_01.jpeg" alt="Auriculares inalámbricos">
+                    <span class="badge">Nuevo</span>
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Gato blanco </h2>
+                    <p class="card-price">
+                        <span class="price-current">$199.99</span>
+                        <span class="price-old">$249.99</span>
+                    </p>
+                    <p class="card-description">
+                        Gato blanco que duerme 12 horas diarias
+                    </p>
+                    <div class="card-footer">
+                        <button class="btn-primary">Añadir al Carrito</button>
+                        <button class="btn-secondary">Ver Detalles</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="card">
+                <div class="card-image">
+                    <img src="gato_02.jpeg" alt="Reloj inteligente">
+                    <span class="badge badge-sale">-20%</span>
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">SmartCat</h2>
+                    <p class="card-price">
+                        <span class="price-current">$159.99</span>
+                        <span class="price-old">$199.99</span>
+                    </p>
+                    <p class="card-description">
+                        gato gordito y lloron.
+                    </p>
+                    <div class="card-footer">
+                        <button class="btn-primary">Añadir al Carrito</button>
+                        <button class="btn-secondary">Ver Detalles</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="card">
+                <div class="card-image">
+                    <img src="gato3.png" alt="Cámara digital">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Duo de gatos negros</h2>
+                    <p class="card-price">
+                        <span class="price-current">$899.99</span>
+                    </p>
+                    <p class="card-description">
+                        Dos gatos negros que .
+                    </p>
+                    <div class="card-footer">
+                        <button class="btn-primary">Añadir al Carrito</button>
+                        <button class="btn-secondary">Ver Detalles</button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- Explicación del Box Model -->
+        <div class="box-model-explanation">
+            <h2>🎯 Box Model Aplicado en estas Cards</h2>
+            <div class="explanation-grid">
+                <div class="explanation-item">
+                    <h3>📦 Content</h3>
+                    <p>Imagen, título, precio, descripción y botones</p>
+                </div>
+                <div class="explanation-item">
+                    <h3>📏 Padding</h3>
+                    <p>20px en card-content para dar aire al contenido</p>
+                </div>
+                <div class="explanation-item">
+                    <h3>🖼️ Border</h3>
+                    <p>1px solid con border-radius de 12px</p>
+                </div>
+                <div class="explanation-item">
+                    <h3>🌌 Margin</h3>
+                    <p>Gap de 20px entre cards (usando CSS Grid)</p>
+                </div>
+                <div class="explanation-item">
+                    <h3>📐 Box-Sizing</h3>
+                    <p>border-box para width predecible de 300px</p>
+                </div>
+                <div class="explanation-item">
+                    <h3>🎨 Box-Shadow</h3>
+                    <p>Sombra sutil que se intensifica con hover</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

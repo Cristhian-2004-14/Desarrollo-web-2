@@ -1,0 +1,380 @@
+/* =====================================
+    RESET Y BOX-SIZING GLOBAL
+    ===================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* ⭐ CRÍTICO: Hace los tamaños predecibles */
+}
+
+:root {
+    /* 🎮 PALETA DE COLORES PS5 METÁLICA */
+    --color-primary: #0072CE; /* Azul Eléctrico (Luz LED PS5) */
+    --color-primary-dark: #005A9C;
+    --color-secondary: #9AA7B3; /* Gris frío / Platino */
+    --color-success: #38C172;
+    --color-danger: #D6336C; /* Un toque magenta/rojo */
+    --color-text: #E0E0E0; /* Gris claro para texto sobre fondo oscuro */
+    --color-text-dark: #1F1F1F; /* Grafito/Negro profundo para contraste */
+    --color-bg: #F5F5F5; /* Gris muy claro / Blanco Metálico */
+    --color-bg-secondary: #0A0A0A; /* Negro profundo (Interior PS5) */
+    --color-border: #333333; /* Gris oscuro para bordes */
+    
+    /* Espaciado */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    /* Sombras */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 6px 15px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.9);
+    
+    /* Transiciones */
+    --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transición más sofisticada */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-bg-secondary); 
+    padding: var(--spacing-xl) 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.page-title {
+    font-size: 2.8rem;
+    text-align: center;
+    color: var(--color-bg); /* Título blanco */
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* Resplandor azul potente */
+    text-shadow: 0 0 15px rgba(0, 114, 206, 0.8);
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-xl);
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+/* =====================================
+    GRID DE CARDS
+    ===================================== */
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* =====================================
+    CARD COMPONENT - ESTILO PS5 METÁLICO
+    ===================================== */
+
+.card {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 350px;
+    
+    /* Fondo gris claro/metálico */
+    background-color: var(--color-bg);
+    
+    /* Borde más sutil */
+    border: 1px solid var(--color-border);
+    border-radius: 10px; /* Un poco menos redondeado */
+    
+    /* Sombra profunda y oscura */
+    box-shadow: var(--shadow-md);
+    
+    overflow: hidden;
+    transition: var(--transition);
+    
+    display: flex;
+    flex-direction: column;
+}
+
+/* ⭐ EFECTO HOVER SOLICITADO (Resplandor Azul) */
+.card:hover {
+    /* Sombra aún más grande para el efecto "flotante" */
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px);
+    /* Resplandor azul intenso que reemplaza el contorno negro */
+    border: 1px solid var(--color-primary); 
+    box-shadow: 0 0 25px rgba(0, 114, 206, 0.8), var(--shadow-lg);
+}
+
+/* =====================================
+    CARD IMAGE
+    ===================================== */
+
+.card-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+/* Badge en la imagen */
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--color-primary); /* Azul PS5 */
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: var(--shadow-sm);
+}
+
+.badge-sale {
+    background-color: var(--color-danger); /* Rojo/Magenta */
+}
+
+/* =====================================
+    CARD CONTENT
+    ===================================== */
+
+.card-content {
+    padding: var(--spacing-md);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* El contenido sobre el fondo blanco/metálico debe ser oscuro (Grafito) */
+    color: var(--color-text-dark); 
+}
+
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.3;
+}
+
+.card-price {
+    margin-bottom: var(--spacing-sm);
+}
+
+.price-current {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--color-primary); /* Precio en Azul Eléctrico */
+}
+
+.price-old {
+    font-size: 1rem;
+    color: var(--color-secondary);
+    text-decoration: line-through;
+    margin-left: var(--spacing-xs);
+}
+
+.card-description {
+    color: var(--color-text-dark);
+    opacity: 0.8;
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+    flex: 1;
+}
+
+/* =====================================
+    CARD FOOTER
+    ===================================== */
+
+.card-footer {
+    display: flex;
+    gap: var(--spacing-xs);
+    margin-top: auto;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px; 
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.95rem;
+    font-weight: 600;
+    flex: 1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 114, 206, 0.6);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 114, 206, 0.8);
+}
+
+.btn-secondary {
+    background-color: var(--color-text-dark);
+    color: var(--color-bg);
+    border: 2px solid var(--color-text-dark);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+/* =====================================
+    EXPLICACIÓN DEL BOX MODEL (Estilo PS5 Metálico)
+    ===================================== */
+
+.box-model-explanation {
+    background: var(--color-text-dark); /* Fondo Grafito */
+    padding: var(--spacing-xl);
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    margin-top: var(--spacing-xl);
+    color: var(--color-text); /* Texto claro */
+    border: 2px solid var(--color-primary); /* Borde de acento azul más grueso */
+}
+
+.box-model-explanation h2 {
+    text-align: center;
+    color: var(--color-primary); /* Título azul */
+    margin-bottom: var(--spacing-lg);
+    font-size: 2rem;
+    text-shadow: 0 0 10px rgba(0, 114, 206, 0.4);
+}
+
+.explanation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.explanation-item {
+    padding: var(--spacing-md);
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    background-color: #1A1A1A; /* Gris muy oscuro */
+    transition: var(--transition);
+}
+
+.explanation-item:hover {
+    box-shadow: 0 0 15px rgba(0, 114, 206, 0.7); /* Resplandor azul al pasar el mouse */
+    transform: scale(1.03);
+    border-color: var(--color-primary);
+}
+
+.explanation-item h3 {
+    color: var(--color-bg); /* Título blanco */
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.explanation-item p {
+    color: var(--color-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* =====================================
+    RESPONSIVE
+    ===================================== */
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .card {
+        max-width: 100%;
+    }
+    
+    .card-footer {
+        flex-direction: column;
+    }
+    
+    .explanation-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .box-model-explanation {
+        padding: var(--spacing-md);
+    }
+}
+
+/* =====================================
+   NOTAS EDUCATIVAS
+   ===================================== */
+
+/*
+📦 BOX MODEL APLICADO EN ESTE EJERCICIO:
+
+1. GLOBAL BOX-SIZING:
+   * { box-sizing: border-box; }
+   → Hace que width/height incluyan padding y border
+   
+2. CARD:
+   - width: 100% (max-width: 350px)
+   - padding: 0 (el padding está en card-content)
+   - border: 1px solid
+   - margin: 0 (el spacing se maneja con gap en grid)
+   - box-shadow: Sombra visual
+   
+3. CARD-CONTENT:
+   - padding: 1.5rem (20px en todos los lados)
+   → Crea espacio entre el contenido y el borde
+   
+4. BUTTON:
+   - padding: 12px 20px
+   - border: none (o 2px para secondary)
+   → El padding hace el botón clickeable
+   
+5. MARGIN vs GAP:
+   - NO usamos margin entre cards
+   - Usamos grid gap para mejor control
+   
+6. BORDER-RADIUS:
+   - overflow: hidden en .card
+   → Hace que la imagen respete el border-radius
+   
+⚡ BENEFICIOS DE BORDER-BOX:
+   - width: 350px significa EXACTAMENTE 350px
+   - No importa cuánto padding o border agregues
+   - Mucho más predecible y fácil de trabajar
+*/
