@@ -1,0 +1,319 @@
+/* =====================================
+  Box-Sizing Comparison - Styles (Persona 3 Reloaded)
+  ===================================== */
+
+/* INICIO DE LA MEJOR PRÁCTICA: BOX-SIZING UNIVERSAL */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+/* Ahora TODOS los elementos usan border-box. Esto hace que el width/height
+   incluya el padding y el border, resolviendo los problemas del 'content-box'. */
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    margin: 0;
+    padding: 40px 20px;
+    /* Fondo principal: Azul oscuro/negro de P3R */
+    background: linear-gradient(135deg, #101018 0%, #000000 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    /* Efecto de resplandor sutil en el título */
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); 
+    letter-spacing: 2px;
+}
+
+.intro {
+    text-align: center;
+    color: #cccccc;
+    font-size: 1.1rem;
+    margin-bottom: 4rem;
+    text-transform: uppercase;
+}
+
+code {
+    /* Código en línea en las introducciones */
+    background: rgba(255, 255, 255, 0.1); 
+    padding: 3px 8px;
+    border-radius: 4px; /* Bordes afilados */
+    color: #ff004c; /* Rojo P3 de acento */
+    font-weight: 700;
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem; /* Mayor espacio */
+    margin-bottom: 4rem;
+}
+
+.box-wrapper {
+    /* El contenedor de las cajas de comparación */
+    background: #1a1a24; 
+    padding: 3rem; /* Más padding para hacerlo más elegante */
+    border-radius: 6px; /* Bordes más angulares */
+    /* Sombra exterior que simula un "escudo" o capa */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6), 0 0 15px rgba(0, 100, 255, 0.2); 
+    border: 1px solid #004488; /* Borde azul sutil */
+}
+
+.box-wrapper h2 {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.5rem;
+    color: #008cff; /* Azul P3 de acento */
+    border-bottom: 2px solid #ff004c; /* Línea de acento roja */
+    padding-bottom: 0.5rem;
+}
+
+/* LAS DOS CAJAS - MISMO CÓDIGO CSS */
+.box {
+    width: 200px;
+    padding: 20px;
+    border: 10px solid #ff004c; /* Borde rojo P3 de alto contraste */
+    background-color: #0d0d14; /* Fondo oscuro casi negro */
+    margin: 0 auto 1.5rem;
+    min-height: 120px;
+    border-radius: 2px; /* Afilado */
+}
+
+/* ÚNICA DIFERENCIA: box-sizing */
+.content-box {
+    box-sizing: content-box; 
+}
+
+.border-box {
+    box-sizing: border-box; 
+}
+
+.box p {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+    color: #cccccc; /* Texto claro */
+}
+
+.box .result {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: #008cff; /* Resultado en azul */
+    font-weight: 700;
+}
+
+.calculation {
+    /* Bloque de explicación de cálculo */
+    background: #000000; 
+    padding: 1.5rem;
+    border-radius: 6px;
+    border-left: 5px solid #ff004c; /* Borde de acento rojo */
+    box-shadow: 0 0 10px rgba(255, 0, 76, 0.2); 
+}
+
+.calculation p {
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+    color: #f0f0f0;
+}
+
+.calculation code {
+    display: block;
+    background: #1a1a24;
+    padding: 1rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    line-height: 1.8;
+    color: #008cff; /* Código en azul */
+    border: 1px solid #004488;
+}
+
+.calculation strong {
+    color: #ff004c; /* Foco en rojo */
+    font-size: 1.3em;
+}
+
+.explanation,
+.best-practice,
+.interactive-demo {
+    /* Contenedores de contenido fuera de la cuadrícula principal */
+    background: #1a1a24;
+    padding: 3rem;
+    border-radius: 6px;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    border: 1px solid #004488;
+    color: white;
+}
+
+.explanation h2,
+.best-practice h2,
+.interactive-demo h2 {
+    color: #008cff;
+    margin: 0 0 1.5rem 0;
+    border-bottom: 2px solid #ff004c;
+    padding-bottom: 0.5rem;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.benefit {
+    /* Tarjetas de beneficios */
+    padding: 1.5rem;
+    background: #0d0d14;
+    border-radius: 4px;
+    border-left: 5px solid #ff004c; /* Acento en rojo */
+    box-shadow: 0 0 10px rgba(255, 0, 76, 0.1);
+}
+
+.benefit h3 {
+    margin: 0 0 0.5rem 0;
+    color: #ff004c;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.benefit p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #aaaaaa;
+}
+
+.best-practice pre {
+    background: #000000;
+    color: #ecf0f1;
+    padding: 2rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #004488;
+}
+
+.best-practice pre code {
+    background: none;
+    color: #ff004c; /* Código de práctica en rojo */
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.tip {
+    /* Contenedor de "Tip" */
+    background: #004488;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 6px;
+    border-left: 5px solid #ff004c;
+    margin: 1.5rem 0 0 0;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.controls label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 600;
+    color: #f0f0f0;
+}
+
+.controls input[type="range"] {
+    flex: 1;
+    /* Estilos minimalistas para el rango */
+    height: 5px;
+    background: #004488;
+    border-radius: 2px;
+    border: none;
+}
+
+.controls input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #ff004c;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 5px #ff004c;
+}
+
+.controls span {
+    display: inline-block;
+    min-width: 60px;
+    color: #ff004c; /* Valor actual en rojo */
+    font-weight: 700;
+}
+
+.demo-boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+}
+
+.demo-box {
+    box-sizing: content-box;
+    width: 200px;
+    padding: 20px;
+    border: 10px solid #ff004c; /* Content Box en Rojo (Alto Contraste) */
+    background-color: #0d0d14;
+    margin: 0 auto;
+    text-align: center;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    color: white;
+}
+
+.demo-border-box {
+    box-sizing: border-box;
+    border-color: #008cff; /* Border Box en Azul (Énfasis positivo) */
+    background-color: #0d0d14;
+    color: white;
+}
+
+.demo-box p {
+    margin: 0.5rem 0;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px 10px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .comparison-grid,
+    .demo-boxes {
+        grid-template-columns: 1fr;
+    }
+    
+    .box {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .box-wrapper,
+    .explanation,
+    .best-practice,
+    .interactive-demo {
+        padding: 2rem 1.5rem;
+    }
+}
