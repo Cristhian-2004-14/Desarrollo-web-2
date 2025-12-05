@@ -1,0 +1,396 @@
+/* =====================================
+    PERSONA 5 INSPIRED THEME
+    ===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables para la estética Persona 5 */
+:root {
+    --color-p5-red: #E52329; /* Rojo Vibrante Característico (All-Out Attack) */
+    --color-p5-dark: #1A1A1A; /* Negro Profundo / Fondo */
+    --color-p5-white: #F0F0F0; /* Blanco Brillante / Texto Principal */
+    --color-p5-yellow: #FFC000; /* Amarillo de Acento (Sutil) */
+    
+    /* Sombras y contraste de P5 (no glow, sino pop) */
+    --shadow-red-pop: 5px 5px 0 0 var(--color-p5-red);
+    --shadow-dark-pop: 5px 5px 0 0 var(--color-p5-dark);
+
+    --transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Transición rápida y angular */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    background-color: var(--color-p5-dark); /* Fondo oscuro */
+    color: var(--color-p5-white); /* Texto claro */
+}
+
+/* ==============================
+    HERO SECTION
+    ============================== */
+.hero {
+    position: relative;
+    height: 100vh;
+    
+    /* URL de fondo con la paleta P5 */
+    background-image: url('https://placehold.co/1920x1080/1A1A1A/E52329?text=PERSONA+5+STYLE');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    overflow: hidden;
+}
+
+/* ==============================
+    OVERLAY SEMITRANSPARENTE
+    ============================== */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Gradiente de Rojo a Oscuro */
+    background: linear-gradient(
+        135deg,
+        rgba(229, 35, 41, 0.95) 0%, /* Rojo 95% opaco */
+        rgba(26, 26, 26, 0.85) 100% /* Negro 85% opaco */
+    );
+    
+    z-index: 1;
+}
+
+/* ==============================
+    REDES SOCIALES
+    ============================== */
+.social-links {
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Espaciado ajustado */
+}
+
+.social-links a {
+    color: var(--color-p5-white);
+    width: 35px; /* Ligeramente más pequeños */
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0; /* Ángulos afilados */
+    
+    /* Alto contraste */
+    border: 2px solid var(--color-p5-dark);
+    background: var(--color-p5-red); 
+    
+    box-shadow: 2px 2px 0 0 var(--color-p5-dark); /* Sombra de comic */
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background: var(--color-p5-yellow); /* Color de acento en hover */
+    color: var(--color-p5-dark);
+    transform: translate(3px, 3px); /* Movimiento que simula el golpe */
+    box-shadow: 0 0 0 0 var(--color-p5-dark); /* La sombra desaparece */
+}
+
+/* ==============================
+    CONTENIDO HERO
+    ============================== */
+.hero-content {
+    z-index: 10;
+    text-align: center;
+    max-width: 900px;
+    padding: 2rem;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    
+    /* Estilo de "cinta" P5 */
+    background: var(--color-p5-dark);
+    border: 2px solid var(--color-p5-white);
+    
+    border-radius: 0; /* Ángulos afilados */
+    color: var(--color-p5-white);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    
+    box-shadow: 3px 3px 0 0 var(--color-p5-red);
+}
+
+.hero-content h1 {
+    color: var(--color-p5-white);
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    font-weight: 900;
+    
+    /* Sombra de texto de alto contraste */
+    text-shadow: 4px 4px 0 var(--color-p5-red);
+}
+
+.hero-content p {
+    color: var(--color-p5-white);
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    text-shadow: 2px 2px 0 var(--color-p5-dark);
+}
+
+/* ==============================
+    BOTONES HERO
+    ============================== */
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.btn {
+    padding: 1.1rem 3rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 0; /* Afilado P5 */
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid var(--color-p5-dark); /* Borde de contraste base */
+}
+
+/* Botón Primario (Rojo P5) */
+.btn-primary {
+    background: var(--color-p5-red);
+    color: var(--color-p5-white); 
+    box-shadow: var(--shadow-dark-pop);
+}
+
+.btn-primary:hover {
+    transform: translate(5px, 5px); /* Movimiento "de ataque" */
+    box-shadow: 0 0 0 0 var(--color-p5-dark); /* La sombra desaparece */
+    background: var(--color-p5-red);
+    color: var(--color-p5-white);
+}
+
+/* Botón Secundario (Blanco con texto Rojo) */
+.btn-secondary {
+    background: var(--color-p5-white);
+    color: var(--color-p5-red);
+    border: 2px solid var(--color-p5-red);
+    box-shadow: var(--shadow-red-pop);
+}
+
+.btn-secondary:hover {
+    background: var(--color-p5-yellow); /* Color de acento en hover */
+    color: var(--color-p5-dark);
+    transform: translate(5px, 5px); /* Movimiento "de ataque" */
+    box-shadow: 0 0 0 0 var(--color-p5-red);
+}
+
+/* ==============================
+    ESTADÍSTICAS HERO
+    ============================== */
+.hero-stats {
+    display: flex;
+    gap: 4rem;
+    justify-content: center;
+    padding-top: 2rem;
+    /* Separador con color de acento */
+    border-top: 2px solid var(--color-p5-red);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat h3 {
+    color: var(--color-p5-red);
+    font-size: 3rem;
+    margin-bottom: 0.3rem;
+    
+    /* Sombra de contraste */
+    text-shadow: 3px 3px 0 var(--color-p5-dark); 
+}
+
+.stat p {
+    color: var(--color-p5-white);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    text-shadow: none;
+}
+
+/* ==============================
+    SCROLL INDICATOR
+    ============================== */
+.scroll-indicator {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-p5-red);
+    cursor: pointer;
+}
+
+.scroll-indicator span {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.scroll-arrow {
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--color-p5-red);
+    border-radius: 0; /* Afilado P5 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-p5-dark);
+    box-shadow: 2px 2px 0 0 var(--color-p5-white);
+}
+
+/* ==============================
+    SECCIÓN DE CONTENIDO
+    ============================== */
+.content-section {
+    padding: 6rem 2rem;
+    background: var(--color-p5-dark);
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content-container h2 {
+    text-align: center;
+    font-size: 3rem;
+    color: var(--color-p5-white);
+    margin-bottom: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 900;
+    
+    /* Título de sección con línea de acento P5 */
+    text-shadow: 3px 3px 0 var(--color-p5-red);
+    border-bottom: 4px solid var(--color-p5-red);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+    width: auto;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+}
+
+.feature {
+    background: var(--color-p5-white); /* Tarjeta blanca */
+    padding: 3rem 2rem;
+    border-radius: 0; /* Ángulos afilados */
+    text-align: center;
+    border: 2px solid var(--color-p5-dark);
+    color: var(--color-p5-dark); /* Texto oscuro en fondo claro */
+    
+    /* Sombra roja para pop */
+    box-shadow: var(--shadow-red-pop);
+    
+    transition: var(--transition);
+}
+
+.feature:hover {
+    transform: translate(5px, 5px); 
+    /* La sombra desaparece al moverse */
+    box-shadow: 0 0 0 0 var(--color-p5-red);
+    background: var(--color-p5-yellow); /* Color de acento en hover */
+}
+
+.feature-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--color-p5-red); /* Icono Rojo */
+    text-shadow: none;
+}
+
+.feature h3 {
+    color: var(--color-p5-dark);
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-shadow: none;
+}
+
+.feature p {
+    color: var(--color-p5-dark);
+    line-height: 1.8;
+}
+
+/* ==============================
+    RESPONSIVE
+    ============================== */
+@media (max-width: 900px) {
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.8rem;
+        text-shadow: 3px 3px 0 var(--color-p5-red); /* Sombra ajustada */
+    }
+    
+    .btn {
+        width: 80%;
+        max-width: 300px;
+    }
+    
+    .social-links {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        transform: none;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .social-links {
+        display: none;
+    }
+}

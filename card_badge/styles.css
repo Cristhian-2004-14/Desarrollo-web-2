@@ -1,0 +1,308 @@
+/* =====================================
+   RESET Y VARIABLES P4G
+   ===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables basadas en la interfaz de P4G (Amarillo, Negro, Alto Contraste) */
+:root {
+    --color-primary: #FFC300; /* Amarillo Vibrante / Dorado P4G */
+    --color-primary-dark: #E5A800; /* Dorado oscuro para hover */
+    --color-secondary: #FFD700; /* Dorado claro / Acento */
+    --color-text: #1A1A1A; /* Casi negro para alto contraste */
+    --color-text-light: #4B5563;
+    --color-bg: #FFFFFF; /* Fondo de tarjeta limpio */
+    --color-shadow: rgba(255, 195, 0, 0.5); /* Sombra amarilla */
+    
+    --border-radius-card: 10px; 
+    --border-radius-btn: 6px;
+    --transition: all 0.25s cubic-bezier(0.1, 0.7, 0.5, 0.9); 
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Aplicando el degradado de Persona 4 (Amarillo/Dorado) */
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    /* Color oscuro para alto contraste contra el fondo amarillo */
+    color: var(--color-text);
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    /* Sombra blanca sutil para separar del fondo */
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+    font-weight: 900;
+}
+
+.subtitle {
+    /* Color oscuro para alto contraste */
+    color: var(--color-text);
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* ==============================
+    CARD CONTAINER (Estilo P4G: Borde y Sombra Amarilla)
+    ============================== */
+.card {
+    position: relative;
+    
+    background: var(--color-bg);
+    border-radius: var(--border-radius-card); /* Bordes más sutiles */
+    overflow: hidden;
+    /* Sombra basada en el color de P4G */
+    box-shadow: 0 10px 30px var(--color-shadow);
+    transition: var(--transition);
+    border: 3px solid var(--color-primary-dark); /* Borde dorado fuerte */
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px var(--color-shadow);
+    border-color: var(--color-primary);
+}
+
+/* ==============================
+    BADGE POSICIONADO
+    ============================== */
+.badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    
+    /* Usando la variable de transición */
+    animation: badgeBounce 0.4s cubic-bezier(0.1, 0.7, 0.5, 0.9);
+}
+
+@keyframes badgeBounce {
+    0% {
+        transform: scale(0) rotate(-10deg);
+    }
+    80% {
+        transform: scale(1.1) rotate(5deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Variantes de badges P4G */
+.badge-new {
+    background: var(--color-primary-dark); /* Dorado oscuro */
+    color: white;
+}
+
+.badge-discount {
+    background: #D91E45; /* Rojo/Rosado de acento P4G */
+    color: white;
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+}
+
+.badge-hot {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); /* Dorado */
+    color: var(--color-text); /* Texto oscuro para alto contraste */
+    animation: badgePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+.badge-limited {
+    background: #005C9D; /* Azul de contraste */
+    color: white;
+    font-size: 0.65rem;
+    padding: 0.4rem 0.8rem;
+    /* Se elimina la animación "shake" que no encaja con P4G */
+    animation: none; 
+}
+
+.badge-premium {
+    background: var(--color-text); /* Negro */
+    color: var(--color-primary); /* Dorado */
+    border: 2px solid var(--color-primary);
+}
+
+.badge-bestseller {
+    background: linear-gradient(135deg, #10B981, #059669); /* Verde de acento */
+    color: white;
+}
+
+/* ==============================
+    CARD IMAGE
+    ============================== */
+.card-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 3px solid var(--color-primary); /* Línea de separación dorada */
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.05); /* Zoom más suave */
+}
+
+/* ==============================
+    CARD CONTENT
+    ============================== */
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content h3 {
+    color: var(--color-primary-dark); /* Títulos en dorado oscuro */
+    margin-bottom: 0.8rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.card-content p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* ==============================
+    CARD FOOTER
+    ============================== */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid #F3F4F6;
+}
+
+.price {
+    font-size: 1.8rem; /* Mayor visibilidad */
+    font-weight: 900;
+    /* Degradado de texto Dorado P4G */
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.btn {
+    /* Degradado de botón Dorado P4G */
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); 
+    color: var(--color-text); /* Texto oscuro en botón dorado */
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: var(--border-radius-btn);
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: var(--transition);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    background: var(--color-primary-dark);
+    color: white;
+    box-shadow: 0 5px 15px var(--color-shadow);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* ==============================
+    RESPONSIVE
+    ============================== */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .badge {
+        top: 0.7rem;
+        right: 0.7rem;
+        font-size: 0.7rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .badge-discount {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-content {
+        padding: 1rem;
+    }
+    
+    .card-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .card-content p {
+        font-size: 0.9rem;
+    }
+    
+    .price {
+        font-size: 1.5rem;
+    }
+    
+    .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
