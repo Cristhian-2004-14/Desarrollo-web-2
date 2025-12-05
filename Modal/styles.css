@@ -1,0 +1,363 @@
+/* =====================================
+    VARIABLES Y RESET (Estilo PS5 Metálico)
+    ===================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* 🎮 PALETA DE COLORES PS5 METÁLICA */
+    --color-primary: #0072CE; /* Azul Eléctrico (Luz LED PS5) */
+    --color-primary-dark: #005A9C;
+    --color-secondary: #9AA7B3; /* Gris frío / Platino */
+    --color-text: #1F1F1F; /* Grafito/Negro profundo para texto sobre fondo claro */
+    --color-text-light: #666666; 
+    --color-bg: #F5F5F5; /* Gris muy claro / Blanco Metálico */
+    --color-bg-secondary: #0A0A0A; /* Negro profundo (Fondo) */
+    --color-accent-dark: #1A1A1A; /* Para elementos de contraste interno */
+    
+    /* Sombras y Glow */
+    --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 25px rgba(0, 114, 206, 0.8);
+    
+    /* Transiciones */
+    --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Fondo oscuro y profundo de PS5 */
+    background: var(--color-bg-secondary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.container {
+    text-align: center;
+    /* Contenedor principal de color metálico claro */
+    background: var(--color-bg);
+    padding: 3rem;
+    border-radius: 15px;
+    /* Sombra oscura y sutil */
+    box-shadow: var(--shadow-md);
+    max-width: 600px;
+    border: 1px solid var(--color-secondary); /* Borde sutil */
+}
+
+.container h1 {
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.container p {
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.btn-open {
+    /* Botón Azul Eléctrico */
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    /* Sombra inicial con glow azul */
+    box-shadow: 0 4px 15px rgba(0, 114, 206, 0.4);
+}
+
+.btn-open:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-3px);
+    /* Resplandor más fuerte al pasar el ratón */
+    box-shadow: 0 8px 25px rgba(0, 114, 206, 0.8);
+}
+
+.btn-open:active {
+    transform: translateY(0);
+}
+
+.info {
+    margin-top: 2rem;
+    /* Fondo de contraste oscuro */
+    background: var(--color-accent-dark);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: left;
+    color: var(--color-text); /* Texto claro */
+    border: 1px solid var(--color-primary);
+}
+
+.info h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.info ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.info li {
+    color: var(--color-secondary);
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 0.95rem;
+}
+
+.info li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary); /* Flecha Azul */
+    font-weight: bold;
+}
+
+/* ==============================
+    MODAL OVERLAY
+    ============================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-color: rgba(0, 0, 0, 0.85); /* Oscuro para un efecto de cine */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    z-index: 1000;
+    
+    opacity: 0;
+    visibility: hidden;
+    
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    
+    padding: 1rem;
+}
+
+/* Clase para mostrar el modal */
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ==============================
+    MODAL CONTENIDO
+    ============================== */
+.modal {
+    /* Modal de color metálico claro */
+    background: var(--color-bg);
+    border-radius: 15px;
+    padding: 2.5rem;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    /* Sombra y glow azul alrededor del modal */
+    box-shadow: var(--shadow-md), 0 0 35px rgba(0, 114, 206, 0.6);
+    border: 2px solid var(--color-primary); /* Borde azul para definir */
+    
+    transform: scale(0.7);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.modal-overlay.active .modal {
+    transform: scale(1);
+}
+
+/* ==============================
+    BOTÓN DE CIERRE
+    ============================== */
+.btn-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: var(--color-text-light);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition);
+    line-height: 1;
+}
+
+.btn-close:hover {
+    background: var(--color-primary);
+    color: white;
+    transform: rotate(180deg); /* Animación más futurista */
+}
+
+/* ==============================
+    CONTENIDO DEL MODAL
+    ============================== */
+.modal-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1.5rem;
+    color: var(--color-primary); /* Icono Azul */
+    /* Resplandor al ícono */
+    filter: drop-shadow(0 0 10px rgba(0, 114, 206, 0.8));
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.modal h2 {
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.modal p {
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.modal code {
+    background: var(--color-accent-dark);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    color: var(--color-primary); /* Código en azul */
+    font-family: 'Courier New', monospace;
+}
+
+.modal-features {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.feature {
+    flex: 1;
+    min-width: 120px;
+    padding: 1rem;
+    background: var(--color-accent-dark); /* Fondo oscuro para features */
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    transition: var(--transition);
+}
+
+.feature:hover {
+    box-shadow: 0 0 10px rgba(0, 114, 206, 0.5);
+    transform: scale(1.05);
+}
+
+.feature-icon {
+    display: block;
+    color: var(--color-primary); /* Icono Azul */
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+    filter: drop-shadow(0 0 5px rgba(0, 114, 206, 0.4));
+}
+
+.btn-modal-action {
+    width: 100%;
+    /* Botón Azul Eléctrico */
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 114, 206, 0.4);
+}
+
+.btn-modal-action:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 114, 206, 0.8);
+}
+
+.btn-modal-action:active {
+    transform: translateY(0);
+}
+
+/* ==============================
+    RESPONSIVE
+    ============================== */
+@media (max-width: 768px) {
+    .modal {
+        padding: 2rem;
+    }
+    
+    .modal h2 {
+        font-size: 1.5rem;
+    }
+    
+    .modal p {
+        font-size: 0.95rem;
+    }
+    
+    .modal-features {
+        flex-direction: column;
+    }
+    
+    .feature {
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 2rem;
+    }
+    
+    .container h1 {
+        font-size: 1.8rem;
+    }
+    
+    .modal {
+        padding: 1.5rem;
+    }
+    
+    .btn-close {
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+}
