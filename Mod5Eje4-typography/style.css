@@ -1,0 +1,133 @@
+/* Paleta P5: Rojo (#D92323), Negro (#0D0D0D), Gris Oscuro (#1A1A1A), Blanco (#FAFAFA) */
+
+/* =========================================
+   VARIABLES & SISTEMA TIPOGRÁFICO
+   ========================================= */
+:root {
+    /* Paleta de colores básica para el ejercicio */
+    /* Fondo: Negro */
+    --bg-color: #0D0D0D; 
+    /* Texto: Blanco */
+    --text-color: #FAFAFA; 
+    /* Acento: Rojo Principal */
+    --accent-color: #D92323; 
+
+    /* SISTEMA FLUIDO CON CLAMP()
+       (Los valores y la lógica fluida se mantienen)
+    */
+    --fs-body: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+    --fs-h1: clamp(2rem, 1.5rem + 5vw, 3.5rem);
+    --fs-h2: clamp(1.5rem, 1.2rem + 3vw, 2.5rem);
+    --fs-h3: clamp(1.25rem, 1.1rem + 2vw, 2rem);
+
+    /* Line Heights adaptables */
+    --lh-tight: 1.1;
+    --lh-body: 1.6;
+}
+
+/* =========================================
+   RESET BÁSICO
+   ========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color); /* Negro */
+    color: var(--text-color); /* Blanco */
+    font-family: system-ui, -apple-system, sans-serif;
+    
+    /* Aplicación de la variable fluida base */
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    
+    padding: 2rem;
+}
+
+/* =========================================
+   ESTILOS DE ENCABEZADOS
+   ========================================= */
+h1, h2, h3, h4 {
+    font-weight: 800;
+    line-height: var(--lh-tight);
+    margin-bottom: 0.8em;
+    /* Color de encabezado por defecto en Blanco */
+    color: var(--text-color); 
+}
+
+h1 {
+    font-size: var(--fs-h1);
+    /* H1 en Rojo de acento */
+    color: var(--accent-color);
+    /* Sombra para el estilo P5 */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); 
+}
+
+h2 {
+    font-size: var(--fs-h2);
+    margin-top: 2em;
+}
+
+h3 {
+    font-size: var(--fs-h3);
+}
+
+/* =========================================
+   ELEMENTOS DE TEXTO
+   ========================================= */
+p {
+    margin-bottom: 1.5em;
+    max-width: 65ch; 
+}
+
+.subtitle {
+    font-size: 1.2em; 
+    opacity: 0.8;
+    font-weight: 300;
+}
+
+blockquote {
+    /* Borde en Rojo de acento */
+    border-left: 5px solid var(--accent-color); 
+    padding-left: 1rem;
+    font-style: italic;
+    font-size: 1.1em;
+    margin: 2rem 0;
+    /* Fondo del quote en Gris Oscuro */
+    background: #1A1A1A; 
+    padding: 1rem;
+    border-radius: 0 8px 8px 0;
+    color: white; /* Asegurar que el texto sea blanco */
+}
+
+code {
+    /* Fondo del código en Gris más claro/rojizo sutil */
+    background-color: #333; 
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #D92323; /* Texto del código en Rojo */
+}
+
+hr {
+    border: 0;
+    height: 2px;
+    /* Línea divisoria en Rojo */
+    background: var(--accent-color); 
+    margin: 3rem 0;
+    opacity: 0.7;
+}
+
+/* =========================================
+   LAYOUT
+   ========================================= */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #1A1A1A; 
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(217, 35, 35, 0.2);
+}

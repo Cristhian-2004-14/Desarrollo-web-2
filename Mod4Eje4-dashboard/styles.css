@@ -1,0 +1,493 @@
+/* Paleta P5: Rojo (#D92323), Negro (#0D0D0D), Gris Oscuro (#1A1A1A) */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Fondo muy oscuro */
+    background: #0D0D0D; 
+}
+
+/* ==============================
+   DASHBOARD GRID LAYOUT
+   ============================== */
+.dashboard {
+    display: grid;
+    grid-template-areas:
+        "sidebar header"
+        "sidebar main";
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 70px 1fr;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ==============================
+   SIDEBAR
+   ============================== */
+.sidebar {
+    grid-area: sidebar;
+    /* Fondo del sidebar en Negro */
+    background: linear-gradient(180deg, #0D0D0D 0%, #1A1A1A 100%); 
+    color: white;
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-header h2 {
+    font-size: 1.5rem;
+    color: #D92323; /* Título del Sidebar en Rojo */
+}
+
+.sidebar-nav {
+    padding: 1rem 0;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+    /* Hover en Gris Oscuro */
+    background: #1A1A1A; 
+    color: white;
+}
+
+.nav-item.active {
+    /* Estado Activo en Rojo */
+    background: rgba(217, 35, 35, 0.2); 
+    color: #D92323; 
+    border-left: 4px solid #D92323; 
+}
+
+.nav-icon {
+    font-size: 1.3rem;
+}
+
+/* ==============================
+   HEADER
+   ============================== */
+.header {
+    grid-area: header;
+    /* Header en Gris Oscuro */
+    background: #1A1A1A; 
+    padding: 0 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    color: white;
+}
+
+.header-search input {
+    padding: 0.7rem 1.5rem;
+    /* Borde en Gris Oscuro con fondo Negro */
+    border: 1px solid #333; 
+    background: #0D0D0D;
+    color: white;
+    border-radius: 25px;
+    width: 300px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.header-search input:focus {
+    outline: none;
+    /* Focus con acento Rojo */
+    border-color: #D92323; 
+    box-shadow: 0 0 0 3px rgba(217, 35, 35, 0.3);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon-btn {
+    position: relative;
+    background: transparent;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+    color: white; /* Iconos en blanco */
+}
+
+.icon-btn:hover {
+    /* Hover en Gris más claro */
+    background: #333; 
+}
+
+.badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* Badge en Rojo */
+    background: #D92323; 
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 10px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.5rem 1rem;
+    /* Fondo del perfil en Negro */
+    background: #0D0D0D; 
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.user-profile:hover {
+    /* Hover en Gris Oscuro */
+    background: #333; 
+}
+
+.user-profile img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    /* Borde Rojo alrededor del perfil */
+    border: 2px solid #D92323; 
+}
+
+/* ==============================
+   MAIN CONTENT
+   ============================== */
+.main-content {
+    grid-area: main;
+    padding: 2rem;
+    overflow-y: auto;
+    /* Fondo oscuro, ya definido en body */
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    /* Título de página en Blanco con acento Rojo */
+    color: white; 
+    text-shadow: 1px 1px 5px rgba(217, 35, 35, 0.5);
+}
+
+.btn-primary {
+    /* Botón principal en Gradiente de Rojo/Negro */
+    background: linear-gradient(135deg, #D92323 0%, #A51C1C 100%); 
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    /* Sombra de hover en Rojo */
+    box-shadow: 0 5px 15px rgba(217, 35, 35, 0.4); 
+}
+
+/* ==============================
+   STATS GRID
+   ============================== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    /* Fondo de tarjeta en Gris Oscuro */
+    background: #1A1A1A; 
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.3s ease;
+    /* Borde sutil Rojo para el estilo P5 */
+    border: 1px solid rgba(217, 35, 35, 0.5); 
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    color: white; /* Iconos en blanco */
+}
+
+/* Aplicamos el acento Rojo para todos los íconos (simplificando la paleta de colores) */
+.stat-blue .stat-icon,
+.stat-green .stat-icon,
+.stat-orange .stat-icon,
+.stat-purple .stat-icon {
+    background: rgba(217, 35, 35, 0.15); /* Fondo claro Rojo */
+    color: #D92323; /* Ícono en Rojo */
+}
+
+.stat-info h3 {
+    font-size: 1.8rem;
+    color: white; /* Texto principal en blanco */
+    margin-bottom: 0.3rem;
+}
+
+.stat-info p {
+    color: #A0A0A0; /* Texto secundario en gris claro */
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-change {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.stat-change.positive {
+    /* Cambio positivo en Verde (contraste) */
+    color: #48bb78; 
+}
+
+.stat-change.positive::before {
+    content: "↑ ";
+}
+
+.stat-change.negative {
+    /* Cambio negativo en Rojo (mantenemos el rojo de alerta) */
+    color: #f56565; 
+}
+
+.stat-change.negative::before {
+    content: "↓ ";
+}
+
+/* ==============================
+   CONTENT GRID
+   ============================== */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    /* Fondo de tarjeta en Gris Oscuro */
+    background: #1A1A1A; 
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.card h3 {
+    margin-bottom: 1.5rem;
+    color: white; /* Títulos de tarjeta en blanco */
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(217, 35, 35, 0.3); /* Separador sutil Rojo */
+    padding-bottom: 0.5rem;
+}
+
+.card-full {
+    grid-column: 1 / -1;
+}
+
+/* ==============================
+   ACTIVITY LIST
+   ============================== */
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.activity-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    /* Fondo del ítem en Negro */
+    background: #0D0D0D; 
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.activity-item:hover {
+    /* Hover en Gris Oscuro */
+    background: #333; 
+}
+
+.activity-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Ícono de actividad en Rojo */
+    background: #D92323; 
+    color: white;
+    border-radius: 50%;
+}
+
+.activity-content p {
+    margin-bottom: 0.3rem;
+    color: white; /* Texto de actividad en blanco */
+}
+
+.activity-content span {
+    color: #999;
+    font-size: 0.85rem;
+}
+
+/* ==============================
+   DATA TABLE
+   ============================== */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table thead th {
+    text-align: left;
+    padding: 1rem;
+    /* Encabezado de tabla en Negro con texto Gris */
+    background: #0D0D0D; 
+    color: #A0A0A0;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.data-table tbody td {
+    padding: 1rem;
+    /* Separador sutil */
+    border-bottom: 1px solid #333; 
+    color: white;
+}
+
+.data-table tbody tr {
+    transition: background 0.3s;
+}
+
+.data-table tbody tr:hover {
+    /* Hover en Gris Oscuro */
+    background: #333; 
+}
+
+/* ==============================
+   BAR CHART
+   ============================== */
+.chart-container {
+    padding: 2rem 0;
+}
+
+.bar-chart {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    height: 250px;
+    gap: 1rem;
+}
+
+.bar {
+    flex: 1;
+    /* Barras en Gradiente de Rojo */
+    background: linear-gradient(180deg, #D92323 0%, #A51C1C 100%); 
+    border-radius: 8px 8px 0 0;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.bar:hover {
+    opacity: 0.9;
+    transform: translateY(-5px);
+}
+
+.bar span {
+    position: absolute;
+    bottom: -30px;
+    font-size: 0.85rem;
+    color: #A0A0A0;
+}
+
+
+@media (max-width: 1024px) {
+    .dashboard {
+        grid-template-columns: 200px 1fr;
+    }
+    
+    .header-search input {
+        width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        grid-template-areas:
+            "header"
+            "main";
+        grid-template-columns: 1fr;
+        grid-template-rows: 70px 1fr;
+    }
+    
+    .sidebar {
+        display: none;
+    }
+    
+    .header {
+        padding: 0 1rem;
+    }
+    
+    .header-search input {
+        width: 150px;
+    }
+    
+    .user-profile span {
+        display: none;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+}

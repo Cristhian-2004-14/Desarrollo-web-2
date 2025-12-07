@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Paleta de P5:
+   - Rojo Principal (Acento): #D92323
+   - Negro Principal (Fondo/Contraste): #0D0D0D
+   - Gris Oscuro (Detalles): #1A1A1A
+   - Blanco (Contenido/Texto): white / #FAFAFA
+*/
+
+/* ==============================
+   HOLY GRAIL LAYOUT CON GRID
+   ============================== */
+.holy-grail {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "nav main sidebar"
+        "footer footer footer";
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    gap: 1rem;
+    padding: 1rem;
+    /* Fondo principal del body, Negro oscuro */
+    background: #0D0D0D; 
+}
+
+.header {
+    grid-area: header;
+    /* Cabecera con gradiente Rojo/Negro */
+    background: linear-gradient(135deg, #D92323 0%, #A51C1C 100%);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.nav {
+    grid-area: nav;
+    /* Contenedor del menú en Negro/Gris Oscuro */
+    background: #1A1A1A;
+    padding: 1.5rem;
+    border-radius: 10px;
+    /* Sombra más marcada en un entorno oscuro */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5); 
+}
+
+.nav ul {
+    list-style: none;
+}
+
+.nav li {
+    margin: 0.5rem 0;
+}
+
+.nav a {
+    /* Color de enlace en Rojo (Acento) */
+    color: #D92323;
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.nav a:hover {
+    /* Fondo del hover sutilmente más claro */
+    background: #0D0D0D; 
+}
+
+.main {
+    grid-area: main;
+    /* Contenido principal en Blanco/Gris Claro para legibilidad */
+    background: white; 
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.main h2 {
+    /* Títulos oscuros sobre fondo claro */
+    color: #1A1A1A; 
+    margin-bottom: 1rem;
+}
+
+.main p {
+    line-height: 1.6;
+    /* Texto principal oscuro sobre fondo claro */
+    color: #333; 
+    margin-bottom: 1rem;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    /* Contenedor de la barra lateral en Negro/Gris Oscuro */
+    background: #1A1A1A;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.widget {
+    /* Widgets en Gris aún más oscuro */
+    background: #0D0D0D; 
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    /* Texto del widget en Blanco */
+    color: white; 
+}
+
+.footer {
+    grid-area: footer;
+    /* Pie de página en Negro */
+    background: #0D0D0D; 
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 10px;
+    /* Borde Rojo para destacar la separación */
+    border-top: 3px solid #D92323; 
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .holy-grail {
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "sidebar"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto auto;
+    }
+}

@@ -1,0 +1,97 @@
+/* Paleta P5: Rojo (#D92323), Negro (#0D0D0D), Gris Oscuro (#1A1A1A) */
+
+/* Reseteo básico y estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    /* Fondo oscuro principal */
+    background-color: #0D0D0D; 
+    color: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Contenedor en Gris Oscuro */
+    background: #1A1A1A; 
+    padding: 20px;
+    border-radius: 8px;
+    /* Sombra con acento Rojo */
+    box-shadow: 0 2px 10px rgba(217, 35, 35, 0.3);
+}
+
+h2 {
+    /* Color de texto Blanco */
+    color: white;
+    /* Borde Rojo como acento */
+    border-left: 5px solid #D92323; 
+    padding-left: 10px;
+    margin-top: 2rem;
+    /* Pequeña sombra de texto para resaltar */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Hacemos que las imágenes sean fluidas */
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    /* Borde sutil Rojo en imágenes si es necesario */
+    border: 1px solid #D92323; 
+}
+
+/* --------------------------------------------------
+   CASO 3: Lógica para Fondo Responsive
+   -------------------------------------------------- */
+
+.hero-background {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    /* Sombra de texto fuerte para el fondo oscuro */
+    text-shadow: 2px 2px 5px rgba(0,0,0,1); 
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    transition: background-image 0.3s ease-in-out;
+    /* Borde exterior para el estilo P5 */
+    border: 3px solid #D92323; 
+    
+    /* 1. Mobile First (Imagen pequeña por defecto) */
+    background-image: url('');
+}
+
+/* 2. Tablet (Media Query) */
+@media (min-width: 600px) {
+    .hero-background {
+        background-image: url('');
+    }
+}
+
+/* 3. Desktop (Media Query) */
+@media (min-width: 1024px) {
+    .hero-background {
+        background-image: url('https://placehold.co/1200x400/D92323/FFF?text=BG+Desktop');
+    }
+}
+
+/* 4. Pantallas de alta densidad (Retina display) - Opcional pero recomendado */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .hero-background {
+        /* Se mantiene el borde Rojo de la P5 para indicar el retina */
+        border: 4px solid #D92323; 
+        /* Aquí se cargarían las imágenes @2x */
+    }
+}
