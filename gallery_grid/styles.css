@@ -1,0 +1,223 @@
+/* =====================================
+   RESET
+   ===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colores de Persona 5: Rojo, Negro, Blanco/Gris */
+    --color-primary: #D92323;       /* Rojo Principal (Acento) */
+    --color-primary-dark: #A51C1C;    /* Rojo Oscuro (Hover/Detalles) */
+    --color-text: #FAFAFA;           /* Blanco/Gris Claro para Texto (Necesario en fondo oscuro) */
+    --color-text-light: #B0B0B0;     /* Gris Claro para Subtítulos/Texto secundario */
+    --color-bg: #0D0D0D;             /* Fondo Negro Principal (Cambiado de #FAFAFA) */
+    
+    --spacing: 1.5rem;
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: var(--color-bg); /* Fondo Negro */
+    color: var(--color-text); /* Texto Blanco */
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+code {
+    background: #1A1A1A; /* Negro suave para bloques de código in-line */
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: var(--color-primary); /* El código resaltado en Rojo */
+}
+
+/* =====================================
+   HEADER
+   ===================================== */
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.header h1 {
+    font-size: 3rem;
+    color: var(--color-text); /* Blanco */
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-light); /* Gris Claro */
+}
+
+/* =====================================
+   GALLERY - CSS GRID ⭐
+   ===================================== */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing);
+    margin-bottom: 4rem;
+}
+
+/* =====================================
+   GALLERY ITEMS
+   ===================================== */
+
+.gallery-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Sombra más oscura */
+    transition: var(--transition);
+    
+    aspect-ratio: 1 / 1;
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(217, 35, 35, 0.4); 
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--transition);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Overlay */
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    /* Overlay se mantiene oscuro */
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.95) 0%, /* Negro más intenso */
+        rgba(0, 0, 0, 0.7) 50%,
+        transparent 100%
+    );
+    
+    color: white;
+    padding: 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .overlay {
+    transform: translateY(0);
+}
+
+.overlay h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.overlay p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* =====================================
+   FEATURED ITEMS - GRID POSITIONING ⭐
+   ===================================== */
+
+.gallery-item.featured {
+    grid-column: span 2;
+}
+
+/* =====================================
+   EXPLANATION SECTION (Fondo Blanco/Claro -> Fondo Negro/Oscuro)
+   ===================================== */
+
+.explanation {
+    background: #1A1A1A; /* Fondo Gris Oscuro para diferenciarse del cuerpo */
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.explanation h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--color-text); /* Blanco */
+}
+
+.code-example {
+    background: #0D0D0D; /* Fondo de código Negro Principal */
+    color: #EBEBEB;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    overflow-x: auto;
+}
+
+.code-example h3 {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.code-example pre {
+    margin: 0;
+}
+
+.code-example code {
+    background: transparent;
+    color: #D92323; /* Código resaltado en Rojo */
+    font-family: 'Courier New', monospace;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    padding: 0;
+}
+
+/* =====================================
+   FEATURES GRID - FLEXBOX DENTRO DE GRID ⭐
+   ===================================== */
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.feature {
+    padding: 1.5rem;
+    background: #1A1A1A; /* Fondo de tarjeta Gris Oscuro */
+    border-radius: 8px;
+    /* Borde izquierdo de acento Rojo */
+    border-left: 4px solid var(--color-primary); 
+}
+
+.feature h4 {
+    color: var(--color-primary); /* Título en Rojo */
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.feature p {
+    color: var(--color-text-light); /* Gris Claro */
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
