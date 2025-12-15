@@ -1,0 +1,169 @@
+/* Paleta P5: Rojo Principal (#D92323), Negro (#0D0D0D), Gris Oscuro P5 (#1A1A1A), Blanco (#FAFAFA) */
+
+/* =========================================
+   1. DEFINICIÓN DE VARIABLES GLOBALES (:root)
+   ========================================= */
+:root {
+    /* Colores Primitivos: Definimos la paleta base */
+    --color-white: #ffffff;        /* Blanco P5 */
+    --color-gray-50: #e0e0e0;      /* Gris Muy Claro (para fondo claro) */
+    --color-gray-100: #ff0000;     /* Gris Claro */
+    --color-gray-500: #888888;
+    --color-gray-800: #333333;
+    --color-dark-bg: #0D0D0D;      /* Negro P5 */
+    --color-dark-card: #1A1A1A;    /* Gris Oscuro P5 */
+    --color-accent: #D92323;       /* Rojo Principal P5 */
+    --color-accent-light: #ff6347;  /* Rojo más claro para contraste en dark */
+
+    /* VARIABLES SEMÁNTICAS (Modo CLARO: Estilo P5 con fondo brillante/gris) */
+    
+    --bg-body: var(--color-gray-50);      /* Fondo de la página (gris claro) */
+    --bg-card: var(--color-white);        /* Fondo de la tarjeta (blanco) */
+    --text-primary: var(--color-dark-card); /* Título y nombres (gris oscuro P5) */
+    --text-secondary: var(--color-gray-500); /* Textos secundarios */
+    --btn-border: var(--color-accent);    /* Bordes de botones (Rojo P5) */
+    --btn-text: var(--color-accent);      /* Texto de botones (Rojo P5) */
+    --shadow-color: rgba(217, 35, 35, 0.2); /* Sombra con toque rojo */
+}
+
+/* =========================================
+   2. EL TEMA OSCURO (Sobrescritura - P5 Nítido)
+   ========================================= */
+/* Selector de atributo: Busca cuando el HTML tiene data-theme="dark" */
+[data-theme="dark"] {
+    /* Aquí REASIGNAMOS las variables semánticas al estilo Negro/Rojo P5. */
+    
+    --bg-body: var(--color-dark-bg); /* Fondo de la página: Negro P5 */
+    --bg-card: var(--color-dark-card); /* Fondo de la tarjeta: Gris Oscuro P5 */
+    --text-primary: var(--color-white); /* Título y nombres: Blanco P5 */
+    --text-secondary: #aaaaaa;
+    --shadow-color: rgba(217, 35, 35, 0.5); /* Sombra de Rojo más fuerte */
+    --btn-border: var(--color-accent-light); /* Borde/texto más claro para mejor contraste en negro */
+    --btn-text: var(--color-accent-light);
+}
+
+/* =========================================
+   3. ESTILOS GENERALES (Consumiendo variables)
+   ========================================= */
+body {
+    background-color: var(--bg-body); 
+    color: var(--text-primary);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+/* Estilos de la Tarjeta */
+.card {
+    background-color: var(--bg-card); 
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px var(--shadow-color);
+    text-align: center;
+    width: 300px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    /* Fondo del avatar si no hay imagen (Gris para que contraste con ambos modos) */
+    background-color: var(--color-gray-100); 
+}
+
+h2 { margin: 0; font-size: 1.5rem; }
+
+.role {
+    color: var(--text-secondary); 
+    font-weight: 600;
+    margin: 5px 0;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+/* Botones */
+.buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 8px 20px;
+    border: 2px solid var(--btn-border);
+    background: transparent;
+    color: var(--btn-text);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--btn-border);
+    /* Invertimos colores al hacer hover para que el fondo del hover sea Rojo/Rojo Claro */
+    color: var(--bg-card); 
+}
+
+/* =========================================
+   4. ESTILO DEL INTERRUPTOR (Toggle)
+   ========================================= */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+    margin-right: 10px;
+}
+
+.theme-switch input { display: none; }
+
+.slider {
+    /* Color de slider apagado (Gris) */
+    background-color: #555; 
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    /* Círculo interior (Blanco P5) */
+    background-color: var(--color-white); 
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+    border-radius: 50%;
+}
+
+/* Color de slider encendido (Rojo P5) */
+input:checked + .slider { background-color: var(--color-accent); } 
+input:checked + .slider:before { transform: translateX(26px); }
