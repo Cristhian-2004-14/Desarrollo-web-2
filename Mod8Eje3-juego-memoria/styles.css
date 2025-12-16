@@ -1,0 +1,69 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    background: #0D0D0D;
+    color: white; 
+    padding: 20px;
+}
+
+.board {
+    width: 420px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 20px auto;
+}
+
+.card {
+    width: 90px;
+    height: 90px;
+    background: #1A1A1A; 
+      color: #D92323; 
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+       transform: rotateY(180deg); 
+    transition: transform 0.4s;
+      border: 2px solid rgba(217, 35, 35, 0.3);
+}
+
+.card.revealed {
+        background: #FAFAFA; 
+        color: #0D0D0D; 
+    transform: rotateY(0deg);
+}
+
+.card.matched {
+      background: #D92323; 
+       color: white; 
+    cursor: default;
+        box-shadow: 0 0 15px rgba(217, 35, 35, 0.7);
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 20px;
+     color: white; 
+}
+
+button {
+    padding: 8px 15px;
+    cursor: pointer;
+    border: none;
+    background: #D92323; 
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background: #A51C1C; 
+    transform: translateY(-2px);
+}

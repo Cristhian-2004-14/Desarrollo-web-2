@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0D0D0D 0%, #1A1A1A 100%);
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    color: #D92323;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.todo-app {
+    background: #1A1A1A;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 20px 60px rgba(217, 35, 35, 0.4);
+    border: 3px solid #D92323;
+}
+
+.input-section {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+#todoInput {
+    flex: 1;
+    padding: 1rem;
+    border: 2px solid #333333;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #0D0D0D;
+    color: #FAFAFA;
+}
+
+#todoInput:focus {
+    outline: none;
+    border-color: #D92323;
+    box-shadow: 0 0 0 3px rgba(217, 35, 35, 0.3);
+}
+
+#addBtn {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #D92323 0%, #A51C1C 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+#addBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(217, 35, 35, 0.5);
+}
+
+.filters {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+    flex: 1;
+    padding: 0.8rem;
+    background: #0D0D0D;
+    color: #cccccc;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn:hover {
+    background: #333333;
+    color: #FAFAFA;
+}
+
+.filter-btn.active {
+    background: #D92323;
+    color: white;
+    border-color: #D92323;
+    font-weight: bold;
+}
+
+.count {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    margin-left: 0.3rem;
+    color: #FAFAFA;
+}
+
+.todo-list {
+    list-style: none;
+    margin-bottom: 1.5rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.todo-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+    background: #D92323;
+    border-radius: 4px;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: #0D0D0D;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s;
+    border-left: 5px solid #333333;
+}
+
+.todo-item:hover {
+    background: #000000;
+    border-left-color: #D92323;
+}
+
+.todo-item.completed {
+    opacity: 0.7;
+    border-left-color: #4A9C5E;
+}
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: #666666;
+}
+
+.todo-checkbox {
+    /* Estilo del checkbox personalizado */
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    margin-right: 1rem;
+    cursor: pointer;
+    border: 2px solid #D92323;
+    border-radius: 4px;
+    background: transparent;
+    transition: all 0.2s;
+}
+
+.todo-checkbox:checked {
+    background: #4A9C5E;
+    border-color: #4A9C5E;
+}
+
+/* Usar un pseudo-elemento para el checkmark */
+.todo-checkbox:checked::after {
+    content: '✓';
+    color: white;
+    font-size: 18px;
+    display: block;
+    text-align: center;
+    line-height: 20px;
+}
+
+.todo-text {
+    flex: 1;
+    font-size: 1rem;
+    color: #FAFAFA;
+}
+
+.delete-btn {
+    background: #333333;
+    color: #D92323;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.delete-btn:hover {
+    background: #000000;
+    color: #ff4d4d;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #333333;
+    padding-top: 1rem;
+}
+
+#clearCompleted {
+    background: #D92323;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+#clearCompleted:hover {
+    background: #A51C1C;
+}
+
+#itemsLeft {
+    color: #cccccc;
+    font-size: 0.9rem;
+}
