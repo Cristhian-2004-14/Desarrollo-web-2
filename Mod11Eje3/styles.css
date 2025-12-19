@@ -1,0 +1,165 @@
+/* === 1. BASE Y FONDO "METAVERSE" === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #d31212; 
+    background-image: 
+        linear-gradient(45deg, #000 25%, transparent 25%), 
+        linear-gradient(-45deg, #000 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #000 75%), 
+        linear-gradient(-45deg, transparent 75%, #000 75%);
+    background-size: 40px 40px;
+    background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    min-height: 100vh;
+    padding: 2rem;
+    color: #000;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* === 2. TÍTULOS ESTILO REVISTA === */
+h1 {
+    color: #fff;
+    background: #000;
+    display: table;
+    margin: 0 auto 0.5rem auto;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    transform: rotate(-2deg) skew(-5deg);
+    font-size: 2.5rem;
+}
+
+.subtitle {
+    color: #fff;
+    background: #d31212;
+    display: table;
+    margin: 0 auto 2rem auto;
+    padding: 5px 15px;
+    font-weight: 900;
+    transform: rotate(1deg);
+    border: 2px solid #000;
+}
+
+/* === 3. BOTONES (ACTION COMMANDS) === */
+.controls {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+}
+
+.btn:hover {
+    background: #fff;
+    color: #d31212;
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: 8px 8px 0px #000;
+}
+
+/* === 4. COLUMNAS (THE PALACE SECTIONS) === */
+.columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.column {
+    background: #fff;
+    border: 5px solid #000;
+    padding: 1.5rem;
+    transform: rotate(calc(var(--r, 0) * 1deg));
+    box-shadow: 15px 15px 0px #000;
+}
+
+/* Alternamos la rotación de las columnas para dinamismo */
+.column:nth-child(odd) { --r: -1; }
+.column:nth-child(even) { --r: 1; }
+
+.column h2 {
+    color: #fff;
+    background: #000;
+    margin-bottom: 1.5rem;
+    padding: 5px 10px;
+    font-size: 1.5rem;
+    display: inline-block;
+    clip-path: polygon(0 0, 100% 15%, 95% 100%, 0 85%);
+}
+
+/* === 5. ZONA DE SOLTAR (DROPZONE) === */
+.dropzone {
+    min-height: 350px;
+    background: #eee;
+    padding: 1rem;
+    border: 4px dashed #000;
+    transition: 0.3s;
+}
+
+.dropzone.drag-over {
+    background: #d31212;
+    border-style: solid;
+    transform: scale(1.02);
+}
+
+/* === 6. ÍTEMS ARRASTRABLES (CALL CARDS) === */
+.item {
+    background: #000;
+    color: #fff;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    border-radius: 0;
+    cursor: move;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: all 0.2s;
+    clip-path: polygon(2% 0, 100% 5%, 98% 100%, 0 95%);
+}
+
+.item:hover {
+    background: #d31212;
+    transform: translateX(10px) rotate(-1deg);
+}
+
+.item.dragging {
+    opacity: 0.8;
+    transform: scale(1.1) rotate(5deg);
+    background: #fff;
+    color: #000;
+    border: 3px solid #000;
+}
+
+.drag-handle {
+    font-size: 1.5rem;
+    color: #d31212;
+    font-weight: bold;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .columns {
+        grid-template-columns: 1fr;
+    }
+    .column {
+        transform: none !important;
+    }
+}

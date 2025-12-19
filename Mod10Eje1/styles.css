@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Fuente con un aire más dinámico */
+    font-family: 'Arial Black', Gadget, sans-serif;
+}
+
+body {
+    /* Fondo rojo vibrante con patrón de puntos opcional */
+    background: #d31212; 
+    background-image: radial-gradient(#b10e0e 20%, transparent 20%);
+    background-size: 30px 30px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-wrapper {
+    /* Fondo blanco con bordes negros gruesos y un ligero ángulo */
+    background: #ffffff;
+    padding: 2.5rem;
+    border: 6px solid #000;
+    box-shadow: 15px 15px 0px #000;
+    transform: rotate(-1deg); /* Toque "rebelde" de Persona 5 */
+}
+
+h1 {
+    color: #fff;
+    background: #000;
+    display: inline-block;
+    padding: 5px 15px;
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    transform: rotate(2deg);
+}
+
+.subtitle {
+    color: #000;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #000;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+    width: 100%;
+    padding: 1rem;
+    border: 4px solid #000;
+    border-radius: 0; /* Sin bordes redondeados para un look más agresivo */
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+input:focus {
+    outline: none;
+    background: #000;
+    color: #fff;
+    transform: scale(1.02);
+}
+
+input.valid {
+    border-color: #000;
+    background: #f0f0f0;
+}
+
+input.invalid {
+    border-color: #d31212;
+    background: #ffe6e6;
+}
+
+.error-message {
+    display: none;
+    background: #d31212;
+    color: #fff;
+    padding: 2px 5px;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+    font-weight: bold;
+}
+
+.form-group.error .error-message {
+    display: inline-block;
+}
+
+/* Colores de fuerza de contraseña ajustados al estilo */
+.strength-bar {
+    height: 10px;
+    background: #eee;
+    border: 2px solid #000;
+}
+
+.strength-bar.weak::before { background: #d31212; }
+.strength-bar.medium::before { background: #000; }
+.strength-bar.strong::before { background: #d31212; box-shadow: 0 0 10px rgba(211, 18, 18, 0.5); }
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: #000;
+    color: #fff;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid #000;
+}
+
+.submit-btn:hover {
+    background: #d31212;
+    color: #fff;
+    transform: skew(-5deg); /* Efecto de corte */
+}
+
+.submit-btn:active {
+    transform: scale(0.95);
+}
+
+.login-link a {
+    color: #d31212;
+    text-decoration: underline;
+    font-weight: 900;
+}
+/* Contenedor del indicador */
+.password-strength {
+    margin-top: 10px;
+    padding: 5px;
+    border: 2px solid #000;
+    background: #f0f0f0;
+    transform: rotate(1deg); /* Ligera inclinación rebelde */
+}
+
+/* La barra base */
+.strength-bar {
+    height: 15px;
+    background: #ccc;
+    border: 2px solid #000;
+    position: relative;
+    overflow: hidden;
+    display: block;
+}
+
+/* El relleno dinámico */
+.strength-bar::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 0%;
+    transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s;
+}
+
+/* ESTADOS DE FUERZA */
+
+/* Débil: Rojo Persona con corte diagonal */
+.strength-bar.weak::before {
+    width: 33%;
+    background: #d31212;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+}
+
+/* Media: Negro sólido */
+.strength-bar.medium::before {
+    width: 66%;
+    background: #000;
+    clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
+}
+
+/* Fuerte: Rojo brillante con resplandor (Critical Hit) */
+.strength-bar.strong::before {
+    width: 100%;
+    background: #d31212;
+    box-shadow: 0 0 15px rgba(211, 18, 18, 0.7);
+}
+
+/* TEXTO DE ESTADO (Debajo de la barra) */
+.strength-text {
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 0.9rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    background: #000;
+    color: #fff;
+    transform: rotate(-2deg); /* Inclinación opuesta a la barra */
+}
+
+/* Cambios de color para el texto según la clase activa */
+.weak + .strength-text { color: #d31212; border: 1px solid #d31212; }
+.medium + .strength-text { color: #fff; background: #000; }
+.strong + .strength-text { color: #000; background: #fff; border: 2px solid #d31212; }

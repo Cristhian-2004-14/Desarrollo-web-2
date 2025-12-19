@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App del Clima</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🌤️ Mi Clima</h1>
+            <p>Pronóstico del tiempo en tiempo real</p>
+        </header>
+
+        <div class="weather-app">
+            <!-- Búsqueda y controles -->
+            <div class="controls">
+                <div class="search-box">
+                    <input type="text" id="citySearch" placeholder="🔍 Buscar ciudad...">
+                    <button id="searchBtn">Buscar</button>
+                </div>
+                
+                <div class="actions">
+                    <button id="locationBtn" class="btn-icon" title="Usar mi ubicación">
+                        📍
+                    </button>
+                    <button id="unitToggle" class="btn-toggle">°C</button>
+                </div>
+            </div>
+
+            <!-- Clima actual -->
+            <div class="current-weather" id="currentWeather">
+                <div class="loading">Cargando...</div>
+            </div>
+
+            <!-- Pronóstico de 5 días -->
+            <div class="forecast-section">
+                <h2>Pronóstico de 5 días</h2>
+                <div class="forecast-grid" id="forecastGrid"></div>
+            </div>
+
+            <!-- Ciudades favoritas -->
+            <div class="favorites-section">
+                <h2>Ciudades Favoritas</h2>
+                <div class="favorites-list" id="favoritesList">
+                    <p class="empty-state">No hay ciudades favoritas aún</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de error -->
+        <div class="modal" id="errorModal">
+            <div class="modal-content error">
+                <h3>❌ Error</h3>
+                <p id="errorMessage"></p>
+                <button class="btn" onclick="document.getElementById('errorModal').classList.remove('active')">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

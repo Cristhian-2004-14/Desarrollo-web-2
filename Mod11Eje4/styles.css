@@ -1,0 +1,244 @@
+/* === 1. BASE Y FONDO DINÁMICO === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #d31212; 
+    background-image: radial-gradient(#000 15%, transparent 15%);
+    background-size: 25px 25px;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    min-height: 100vh;
+    padding: 2rem;
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* === 2. TÍTULOS ASIMÉTRICOS === */
+h1 {
+    color: #fff;
+    background: #000;
+    display: table;
+    margin: 0 auto 0.5rem auto;
+    padding: 10px 40px;
+    text-transform: uppercase;
+    transform: rotate(-3deg) skew(-10deg);
+    font-size: 3rem;
+    border: 4px solid #fff;
+}
+
+.subtitle {
+    color: #000;
+    background: #fff;
+    display: table;
+    margin: 0 auto 3rem auto;
+    padding: 5px 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    transform: rotate(2deg);
+}
+
+/* === 3. ÁREA DE CARGA (THE CALLING CARD) === */
+.upload-area {
+    background: #fff;
+    padding: 3rem;
+    text-align: center;
+    border: 8px solid #000;
+    box-shadow: 20px 20px 0px #000;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin-bottom: 3rem;
+    transform: rotate(-1deg);
+    position: relative;
+}
+
+.upload-area.drag-over {
+    background: #000;
+    border-color: #d31212;
+    transform: scale(1.05) rotate(1deg);
+}
+
+.upload-area.drag-over .upload-content p {
+    color: #fff;
+}
+
+.upload-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(5px 5px 0px #d31212);
+}
+
+.upload-content p {
+    color: #000;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.btn-upload {
+    padding: 1.2rem 2.5rem;
+    background: #000;
+    color: #fff;
+    border: none;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 1.5rem 0;
+    transition: 0.2s;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+}
+
+.btn-upload:hover {
+    background: #d31212;
+    transform: scale(1.1) rotate(-3deg);
+    box-shadow: 10px 10px 0px #000;
+}
+
+/* === 4. STATS BAR === */
+.stats {
+    background: #000;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    transform: skew(-15deg);
+    border-left: 10px solid #fff;
+}
+
+.stats span, .stats strong {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    transform: skew(15deg); /* Compensa el skew del padre */
+}
+
+.stats strong { color: #d31212; }
+
+.btn-clear {
+    padding: 0.6rem 1.5rem;
+    background: #d31212;
+    color: #fff;
+    border: 2px solid #fff;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-clear:hover {
+    background: #fff;
+    color: #000;
+    transform: scale(1.1);
+}
+
+/* === 5. GALERÍA DE "TARGETS" === */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+.gallery-item {
+    position: relative;
+    background: #000;
+    padding: 10px;
+    border: 4px solid #fff;
+    transition: all 0.3s;
+    animation: fadeIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gallery-item:hover {
+    transform: scale(1.05) rotate(2deg);
+    border-color: #d31212;
+    z-index: 5;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px) rotate(-10deg); }
+    to { opacity: 1; transform: translateY(0) rotate(0); }
+}
+
+.gallery-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(120%);
+    transition: 0.3s;
+}
+
+.gallery-item:hover .gallery-image {
+    filter: grayscale(0%) contrast(100%);
+}
+
+.gallery-info {
+    padding: 1rem 0.5rem;
+    background: #fff;
+    margin-top: 10px;
+    clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 90%);
+}
+
+.image-name {
+    font-weight: 900;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.btn-remove {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 40px;
+    height: 40px;
+    background: #d31212;
+    color: white;
+    border: 3px solid #000;
+    cursor: pointer;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+    z-index: 10;
+}
+
+.btn-remove:hover {
+    background: #000;
+    transform: rotate(90deg) scale(1.2);
+}
+
+/* === 6. MODAL "FULL SCREEN VIEW" === */
+.modal-overlay {
+    background: rgba(211, 18, 18, 0.9); /* Rojo semitransparente */
+}
+
+.modal-content {
+    border: 10px solid #000;
+    background: #fff;
+    padding: 15px;
+    box-shadow: 30px 30px 0px #000;
+    transform: rotate(-1deg);
+}
+
+.modal-close {
+    background: #000;
+    color: #fff;
+    border-radius: 0;
+    font-weight: 900;
+    top: -20px;
+    right: -20px;
+}
+
+#modalImage {
+    border: 5px solid #000;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    .upload-area { padding: 1.5rem; }
+}
