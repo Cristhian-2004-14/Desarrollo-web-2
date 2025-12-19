@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Raid - BCB Exchange</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MARKET INFILTRATION</h1>
+            <p class="subtitle">Official BCB Rates / Bolivia</p>
+        </header>
+
+        <main class="exchange-grid">
+            <section class="api-card stats-panel">
+                <h2>OFFICIAL STATUS</h2>
+                <div id="rateDisplay" class="result">SCANNING NETWORK...</div>
+                <div class="rates-box">
+                    <p>COMPRA: <span class="currency-label">Bs</span> <strong id="compraVal">6.86</strong></p>
+                    <p>VENTA: <span class="currency-label">Bs</span> <strong id="ventaVal">6.96</strong></p>
+                </div>
+            </section>
+
+            <section class="api-card exchange-panel">
+                <h2>EXCHANGE TERMINAL</h2>
+                <div class="input-group">
+                    <label>MONTO (BOB)</label>
+                    <input type="number" id="amountInput" placeholder="0.00" step="0.01">
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="btnBuy">ADQUIRIR USD</button>
+                    <button id="btnSell">CAMBIAR A BOB</button>
+                </div>
+
+                <div id="calcResult" class="result">AWAITING INPUT...</div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

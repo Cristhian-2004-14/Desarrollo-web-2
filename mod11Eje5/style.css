@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #d31212;
+    background-image: radial-gradient(#000 15%, transparent 16%);
+    background-size: 30px 30px;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    min-height: 100vh;
+    padding: 2rem;
+    color: #000;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+header h1 {
+    background: #000;
+    color: #fff;
+    display: inline-block;
+    padding: 10px 30px;
+    transform: rotate(-2deg) skew(-5deg);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 10px 10px 0px #fff;
+}
+
+.subtitle {
+    background: #fff;
+    display: table;
+    padding: 5px 15px;
+    font-weight: 900;
+    transform: rotate(1deg);
+    margin-bottom: 2rem;
+}
+
+.exchange-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.api-card {
+    background: #fff;
+    border: 6px solid #000;
+    padding: 2rem;
+    box-shadow: 15px 15px 0px #000;
+    transform: rotate(-1deg);
+}
+
+.api-card h2 {
+    background: #000;
+    color: #fff;
+    padding: 5px 15px;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
+}
+
+.rates-box p {
+    font-size: 1.8rem;
+    margin: 15px 0;
+    border-bottom: 4px solid #d31212;
+}
+
+.currency-label { font-size: 1rem; color: #666; }
+
+.input-group input {
+    width: 100%;
+    padding: 1rem;
+    border: 4px solid #000;
+    font-size: 1.5rem;
+    font-family: monospace;
+    background: #eee;
+    margin-bottom: 1rem;
+}
+
+button {
+    width: 100%;
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 1.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-bottom: 10px;
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #d31212;
+    transform: scale(1.05) rotate(1deg);
+}
+
+.result {
+    background: #000;
+    color: #00ff41;
+    padding: 1rem;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-align: center;
+    min-height: 50px;
+    border-left: 5px solid #d31212;
+}
